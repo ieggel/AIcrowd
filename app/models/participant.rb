@@ -228,7 +228,7 @@ class Participant < ApplicationRecord
       user.password = Devise.friendly_token[0,20]
       user.name = username
       user.provider = provider
-      # user.remote_image_file_url = image_url
+      user.remote_image_file_url = image_url
       ### NATE: we want to skip the notification but leave the user unconfirmed
       ### which will allow us to force a password reset on first login
       user.skip_confirmation_notification!
