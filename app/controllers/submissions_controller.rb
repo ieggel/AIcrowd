@@ -231,7 +231,6 @@ class SubmissionsController < ApplicationController
     end
 
     def set_layout
-      return 'bare' if action_name == 'show'
       return 'application'
     end
 
