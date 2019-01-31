@@ -1,27 +1,30 @@
 <div class='content'>
-  <%= concept(Challenge::Cell::ChallengeMasthead,
-                @challenge,
-                current_participant: current_participant) %>
-  <%= render partial: 'challenges/show/subnav',
-        locals: { challenge: @challenge } %>
+  <%= concept(Challenge::Cell::ChallengeMasthead, @challenge, current_participant: current_participant)%>
+  <%= concept(Challenge::Cell::ChallengeSubnav, @challenge, current_participant: current_participant) %>
 
   <% if @challenge.dataset_note.present?  %>
-    <div class='row'>
-      <div class="leaderboard-note">
-        <%= sanitize(@challenge.dataset_note) %>
-      </div>
-    </div>
+  <div class='update'>
+    <p><%= sanitize(@challenge.dataset_note) %></p>
+  </div>
   <% end %>
 
-  <div class="row">
-    <% if @challenge.require_toc_acceptance && !@challenge_participant.accepted_dataset_toc %>
-        <%= render partial: 'toc_form' %>
-    <% else %>
-      <ul class="list-datasets">
-          <%= concept(Dataset::Cell::ListDetail,
-                      collection: @dataset_files,
-                      current_participant: current_participant) %>
-      </ul>
+<% if @challenge.require_toc_acceptance && !@challenge_participant.accepted_dataset_toc %>
+  <%= render partial: 'toc_form' %>
+  <% else %>
+  <section class="section-p-sm">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12">
+          <ul class="list-group list-group-flush-px-0 list-group-dataset">
+
+            <%= concept(Dataset::Cell::ListDetail,
+              collection: @dataset_files,
+              current_participant: current_participant) %>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
     <% end %>
   </div>
 </div>

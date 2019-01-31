@@ -73,7 +73,7 @@ class DatasetFilesController < ApplicationController
       .find_by(participant_id: current_participant.id)
 
     if !@challenge_participant or !@challenge_participant.accepted_dataset_toc
-      redirect_to challenge_path(@challenge)
+      redirect_to challenge_participation_terms_path(@challenge)
     end
   end
 
