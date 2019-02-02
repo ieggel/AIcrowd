@@ -49,7 +49,7 @@ class ApplicationController < ActionController::Base
   end
 
   def request_login
-    flash[:info] = 'Please log into crowdAI to perform this action.'
+    flash[:info] = 'Please log into AIcrowd to perform this action.'
     redirect_to new_participant_session_path
   end
 
