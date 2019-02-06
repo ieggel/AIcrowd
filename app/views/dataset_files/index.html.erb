@@ -2,8 +2,7 @@
   <%= concept(Challenge::Cell::ChallengeMasthead,
                 @challenge,
                 current_participant: current_participant) %>
-  <%= render partial: 'challenges/show/subnav',
-        locals: { challenge: @challenge } %>
+  <%= concept(Challenge::Cell::ChallengeSubnav, @challenge, current_participant: current_participant) %>
 
   <% if @challenge.dataset_note.present?  %>
     <div class='row'>

@@ -38,5 +38,8 @@
     <% if current_participant && current_tab == 'submissions' %>
         <%= link_to 'My Submissions', challenge_submissions_path(challenge), class: "btn btn-secondary pull-right" %>
     <% end %>
+    <% if !challenge_participant or !challenge_participant.accepted_dataset_toc %>
+        <%= link_to "Participate", challenge_participation_terms_path(challenge), { :class=>"btn btn-secondary pull-right" } %>
+    <% end %>
   </div>
 </div>

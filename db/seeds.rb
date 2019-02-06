@@ -131,6 +131,7 @@ if Rails.env == 'development'
       challenge_client_name: "vizdoom2018_single_player",
       online_grading: true,
       vote_count: 42,
+      toc_acceptance_text: "Who reads TOC?Who reads TOC?Who reads TOC?Who reads TOC?Who reads TOC?Who reads TOC?Who reads TOC?Who reads TOC?Who reads TOC?Who reads TOC?Who reads TOC?Who reads TOC?Who reads TOC?Who reads TOC?Who reads TOC?Who reads TOC?Who reads TOC?Who reads TOC?Who reads TOC?Who reads TOC?Who reads TOC?Who reads TOC?Who reads TOC?Who reads TOC?Who reads TOC?",
       description_markdown: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vel malesuada leo, in efficitur erat. Nam id purus nulla. Cras ac libero eget diam luctus ultrices. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Mauris tempor aliquet malesuada. Interdum et malesuada fames ac ante ipsum primis in faucibus. Phasellus at quam ac enim elementum placerat luctus euismod dui. Suspendisse ligula lacus, luctus vel placerat vitae, varius ac sem. Quisque venenatis lectus eu nulla commodo molestie. Vestibulum consectetur elit dictum risus consequat, at laoreet risus euismod.", license_markdown: "Example ",
       license: "<p>Example</p>\n", dataset_description_markdown: "Example ", dataset_description: "<p>Example</p>\n",
       image_file: "Doom_cover_square.jpg",

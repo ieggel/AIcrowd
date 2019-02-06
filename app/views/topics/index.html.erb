@@ -2,8 +2,8 @@
   <%= concept(Challenge::Cell::ChallengeMasthead,
                 @challenge,
                 current_participant: current_participant) %>
-  <%= render partial: 'challenges/show/subnav',
-        locals: { challenge: @challenge } %>
+  <%= concept(Challenge::Cell::ChallengeSubnav, @challenge, current_participant: current_participant) %>
+                
   <div class="row">
     <%= render partial: 'list_header',
                locals: { challenge: @challenge, topics: @topics } %>
