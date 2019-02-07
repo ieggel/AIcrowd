@@ -72,6 +72,23 @@ class DatasetFilesController < ApplicationController
     @challenge = Challenge.friendly.find(params[:challenge_id])
   end
 
+# <<<<<<< HEAD
+# =======
+#   def check_participation_terms
+#     if current_participant && (current_participant.admin? || @challenge.organizer_id == current_participant.organizer_id)
+#       return
+#     end
+#     @challenge_participant = @challenge
+#       .challenge_participants
+#       .find_by(participant_id: current_participant.id)
+
+#     if !@challenge_participant or !@challenge_participant.accepted_dataset_toc
+#       redirect_to challenge_participation_terms_path(@challenge)
+#     end
+#   end
+
+# >>>>>>> 42e4484... * fix participation_terms in a number of places mostly to account for admins and organizers
+
   def dataset_file_params
     params
       .require(:dataset_file)

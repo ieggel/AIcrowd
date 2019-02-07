@@ -11,6 +11,16 @@ feature 'submissions not allowed' do
       online_submissions: true,
       post_challenge_submissions: false }
   let(:participant) { create :participant }
+  let!(:starting_soon_participant) {
+    create :challenge_participant,
+    challenge: starting_soon,
+    participant: participant
+  }
+  let!(:completed_closed_participant) {
+    create :challenge_participant,
+    challenge: completed_closed,
+    participant: participant
+  }
 
   scenario 'public user' do
     visit new_challenge_submission_path(running)
@@ -51,6 +61,11 @@ feature 'challenge ended' do
       online_submissions: true,
       post_challenge_submissions: true }
   let(:participant) { create :participant }
+  let!(:challenge_participant) {
+    create :challenge_participant,
+    challenge: challenge,
+    participant: participant
+  }
   scenario do
     log_in participant
     visit new_challenge_submission_path(challenge)

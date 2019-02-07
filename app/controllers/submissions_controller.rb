@@ -129,6 +129,23 @@ class SubmissionsController < ApplicationController
       @challenge = Challenge.friendly.find(params[:challenge_id])
     end
 
+# <<<<<<< HEAD
+# =======
+
+#     ### TODO: extract this out into a shared function with the
+#     ### dataset_files_controller and also determine if it needs to
+#     ### be bypassed for organizers and admins.
+#     def check_participation_terms
+#       @challenge_participant = @challenge
+#         .challenge_participants
+#         .find_by(participant_id: current_participant.id)
+
+#       if !@challenge_participant or !@challenge_participant.accepted_dataset_toc
+#         redirect_to challenge_path(@challenge)
+#       end
+#     end
+# >>>>>>> 42e4484... * fix participation_terms in a number of places mostly to account for admins and organizers
+
     def grader_logs
       if @challenge.grader_logs
         s3_key = "grader_logs/#{@challenge.slug}/grader_logs_submission_#{@submission.id}.txt"

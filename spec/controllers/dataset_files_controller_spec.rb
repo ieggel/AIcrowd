@@ -9,6 +9,11 @@ RSpec.describe DatasetFilesController, type: :controller do
   let!(:file2) {
     create :dataset_file, challenge: challenge, title: 'file2' }
   let!(:participant) { create :participant }
+  let!(:challenge_participant) {
+    create :challenge_participant,
+    challenge: challenge,
+    participant: participant
+  }
 
   context 'participant' do
     before do
