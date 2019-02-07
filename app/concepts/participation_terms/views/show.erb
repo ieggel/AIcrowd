@@ -9,12 +9,10 @@
 
       <!-- md content -->
       <div class="col-md-8 col-lg-7">
-		<%= challenge.toc_acceptance_text %></br>
-		<%= challenge.toc_acceptance_text %></br>
-		<%= challenge.toc_acceptance_text %></br>
-		<%= challenge.toc_acceptance_text %></br>
-		</br></br></br></br>
-
+        <div class='markdown-wrap'>
+      		<%= challenge.toc_acceptance_markdown %>
+        </div>
+        
     <% if !challenge_participant or !challenge_participant.accepted_dataset_toc %>
         <%= link_to "I Accept the Terms", challenge_participation_terms_path(challenge.id), { method: :post, :class=>"btn btn-primary btn-block" } %>
     <% else %>

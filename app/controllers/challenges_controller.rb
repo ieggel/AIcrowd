@@ -200,7 +200,7 @@ class ChallengesController < ApplicationController
         :dataset_note_markdown,
         :discussions_visible,
         :require_toc_acceptance,
-        :toc_acceptance_text,
+        :toc_acceptance_markdown,
         :toc_acceptance_instructions_markdown,
         :toc_accordion,
         dataset_attributes: [

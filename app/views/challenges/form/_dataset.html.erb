@@ -2,31 +2,9 @@
   <%= form_for [@organizer,@challenge],
         html: { class: "dbl-col" } do |f| %>
           
-      <div class="twin-container" data-controller='challenge-submission'>
-        <div class="twin-field">
-          <fieldset class="checkbox">
-            <div>
-              <%= f.check_box :require_toc_acceptance %>
-              <%= f.label :require_toc_acceptance, 'Require TOC Acceptance?' %>
-            </div>
-          </fieldset>
-        </div>
-        <div class="twin-field">
-          <fieldset class="checkbox">
-            <div>
-              <%= f.check_box :toc_accordion %>
-              <%= f.label :toc_accordion, 'TOC Accordion?' %>
-            </div>
-          </fieldset>
-        </div>
-      </div>
-
-      <%= f.label :toc_acceptance_text, 'TOC Checkbox label' %>
-      <%= f.text_field :toc_acceptance_text %>
-
-      <label>TOC Instructions</label>
+      <label>Participation Terms</label>
       <%= markdown_editor do |m| %>
-        <%= f.text_area :toc_acceptance_instructions_markdown, class: "txt-med" %>
+        <%= f.text_area :toc_acceptance_markdown, class: "txt-med" %>
       <% end %>
 
     <fieldset>

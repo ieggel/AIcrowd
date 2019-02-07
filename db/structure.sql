@@ -538,7 +538,7 @@ CREATE TABLE public.challenges (
     dataset_note text,
     discussions_visible boolean DEFAULT true,
     require_toc_acceptance boolean DEFAULT false,
-    toc_acceptance_text character varying,
+    toc_acceptance_markdown text,
     toc_acceptance_instructions text,
     toc_acceptance_instructions_markdown text
 );

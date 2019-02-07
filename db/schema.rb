@@ -308,7 +308,7 @@ ActiveRecord::Schema.define(version: 2019_01_11_110530) do
     t.text "dataset_note"
     t.boolean "discussions_visible", default: true
     t.boolean "require_toc_acceptance", default: false
-    t.string "toc_acceptance_text"
+    t.text "toc_acceptance_markdown"
     t.text "toc_acceptance_instructions"
     t.text "toc_acceptance_instructions_markdown"
     t.boolean "toc_accordion", default: false
