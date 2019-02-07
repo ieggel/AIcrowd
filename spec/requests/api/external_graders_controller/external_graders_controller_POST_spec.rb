@@ -25,6 +25,11 @@ RSpec.describe Api::ExternalGradersController, type: :request do
   let!(:participant) {
     create :participant,
     api_key: '5762b9423a01f72662264358f071908c' }
+  let!(:challenge_participant) {
+    create :challenge_participant,
+    challenge: challenge,
+    participant: participant
+  }
   let!(:submission1) {
     create :submission,
     challenge: challenge,

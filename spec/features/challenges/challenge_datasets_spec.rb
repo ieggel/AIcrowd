@@ -4,6 +4,11 @@ feature "download dataset links" do
   let!(:participant) { create(:participant, :admin) }
   let!(:challenge) { create :challenge, :running }
   let!(:participant) { create :participant }
+  let!(:challenge_participant) {
+    create :challenge_participant,
+    challenge: challenge,
+    participant: participant
+  }
   let!(:admin) { create :participant, :admin }
   let!(:organizer) { create :participant, organizer: challenge.organizer }
 

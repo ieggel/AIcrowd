@@ -132,7 +132,10 @@ class SubmissionsController < ApplicationController
     def set_challenge
       @challenge = Challenge.friendly.find(params[:challenge_id])
     end
-    
+
+    ### TODO: extract this out into a shared function with the
+    ### dataset_files_controller and also determine if it needs to
+    ### be bypassed for organizers and admins.
     def check_participation_terms
       @challenge_participant = @challenge
         .challenge_participants

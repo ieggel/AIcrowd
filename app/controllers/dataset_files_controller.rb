@@ -68,6 +68,9 @@ class DatasetFilesController < ApplicationController
   end
 
   def check_participation_terms
+    if current_participant && (current_participant.admin? || @challenge.organizer_id == current_participant.organizer_id)
+      return
+    end
     @challenge_participant = @challenge
       .challenge_participants
       .find_by(participant_id: current_participant.id)
