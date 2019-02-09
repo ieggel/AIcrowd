@@ -1,0 +1,2 @@
+class ParticipationTerms < ApplicationRecord
+end

@@ -23,6 +23,11 @@ class Challenge < ApplicationRecord
     reject_if: :all_blank,
     allow_destroy: true
 
+  has_many :challenge_rules, -> { order 'version desc' }, dependent: :destroy, class_name: "ChallengeRules"
+  accepts_nested_attributes_for :challenge_rules,
+    reject_if: :all_blank,
+    allow_destroy: true
+
   has_many :challenge_participants, dependent: :destroy
 
   has_many :submissions, dependent: :destroy
@@ -96,6 +101,10 @@ class Challenge < ApplicationRecord
     self.page_views ||= 0
     self.page_views += 1
     self.save
+  end
+
+  def current_challenge_rules
+    return self.challenge_rules.first
   end
 
   def status_formatted

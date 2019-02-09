@@ -52,6 +52,31 @@ class ChallengePolicy < ApplicationPolicy
     update?
   end
 
+  def current_challenge_rules
+    ChallengeRules.where(challenge_id: @record.id).order("version DESC").first
+  end
+
+  def current_challenge_rules_version
+    current_challenge_rules && current_challenge_rules.version
+  end
+
+  def has_accepted_challenge_rules?
+    if !participant
+      return
+    end
+    cp = ChallengeParticipant.where(challenge_id: @record.id, participant_id: participant.id).first
+    if !cp
+      return
+    end
+    if (cp.challenge_rules_accepted_version != current_challenge_rules_version)
+      return
+    end
+    if !cp.challenge_rules_accepted_date
+      return
+    end
+    return true
+  end
+
   def show_leaderboard?
     @record.challenge_rounds.present? &&
       @record.show_leaderboard == true ||
