@@ -5,6 +5,7 @@
     </div>
   </div>
 </div>
+<div class="row">
 <%= form_for current_participant, url: participant_accept_terms_path(current_participant), validate: true, html: { class: "sgl-col", multipart: true } do |f| %>
   <%=hidden_field_tag("challenge_id", @challenge.id)%>
   <%= f.hidden_field :participation_terms_accepted_version, value: @participation_terms.version %>
@@ -18,3 +19,4 @@
     <%= f.button ("Save"), class: 'btn btn-primary requires-agreement', id: 'accept-participation-terms-button', disabled: true %>
   </div>
 <% end %>
+</div>
