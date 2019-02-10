@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_09_070412) do
+ActiveRecord::Schema.define(version: 2019_02_10_132648) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_stat_statements"
@@ -259,6 +259,7 @@ ActiveRecord::Schema.define(version: 2019_02_09_070412) do
     t.integer "version", default: 1
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "additional_checkbox_text_markdown"
     t.index ["challenge_id"], name: "index_challenge_rules_on_challenge_id"
   end
 
@@ -666,6 +667,8 @@ ActiveRecord::Schema.define(version: 2019_02_09_070412) do
     t.string "uid"
     t.datetime "participation_terms_accepted_date"
     t.integer "participation_terms_accepted_version"
+    t.boolean "agreed_to_terms_of_use_and_privacy", default: false
+    t.boolean "agreed_to_marketing", default: false
     t.index ["confirmation_token"], name: "index_participants_on_confirmation_token", unique: true
     t.index ["email"], name: "index_participants_on_email", unique: true
     t.index ["organizer_id"], name: "index_participants_on_organizer_id"
