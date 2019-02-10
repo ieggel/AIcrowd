@@ -36,6 +36,11 @@ feature 'submissions not allowed' do
     challenge: completed_closed,
     participant: participant
   }
+  let!(:draft_participant) {
+    create :challenge_participant,
+    challenge: draft,
+    participant: participant
+  }
 
   scenario 'public user' do
     visit new_challenge_submission_path(running)
@@ -51,7 +56,6 @@ feature 'submissions not allowed' do
   scenario 'participant' do
     log_in participant
     visit new_challenge_submission_path(draft)
-    binding.pry
     expect_unauthorized
     visit new_challenge_submission_path(starting_soon)
     expect_unauthorized
