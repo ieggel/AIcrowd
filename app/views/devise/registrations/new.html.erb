@@ -11,7 +11,7 @@
           <%= f.password_field :password_confirmation, placeholder: 'Re-type password' %>
           <fieldset class="checkbox">
             <div>
-              <%= f.check_box :agreed_to_terms_of_use_and_privacy, { class: 'requires-agreement-checkbox', "data-target": "sign-up-button"}, "true", "false" %>
+              <%= f.check_box :agreed_to_terms_of_use_and_privacy, { class: 'requires-agreement-checkbox', "data-target": "sign-up-button", id: 'requires-agreement-checkbox'}, "true", "false" %>
               <%= f.label :agreed_to_terms_of_use_and_privacy do %>
                 <p>By signing up, I agree to the terms in the
                 <%= link_to 'Terms of Use', terms_path %>
