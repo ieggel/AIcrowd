@@ -6,7 +6,7 @@ class EmailPreference < ApplicationRecord
     map: :string
 
   def set_defaults
-    self.newsletter = true
+    self.newsletter = self.participant.agreed_to_marketing
     self.challenges_followed = true
     self.mentions = true
     self.email_frequency = :daily
