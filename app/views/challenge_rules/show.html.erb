@@ -4,7 +4,7 @@
   <%= f.hidden_field :challenge_rules_accepted_version, value: @challenge_rules.version %>
   <fieldset class="checkbox">
     <div>
-      <%=check_box("rules", "accepted", { class: 'rules_check', id: 'rules-accepted-checkbox' }, "yes", "no")%>
+      <%=check_box("rules", "accepted", { class: 'requires-agreement-checkbox', 'data-target': 'accept-challenge-rules-button' }, "yes", "no")%>
       <%= label :challenge_rules_checkbox, "I have read and agree to the challenge rules (required)" %>
     </div>
   </fieldset>
@@ -17,6 +17,6 @@
     </fieldset>
   <% end %>
   <div class="button-group">
-    <%= f.button ("Save"), class: 'btn btn-primary', id: 'accept-challenge-rules-button', disabled: true %>
+    <%= f.button ("Save"), class: 'btn btn-primary requires-agreement', id: 'accept-challenge-rules-button', disabled: true %>
   </div>
 <% end %>
