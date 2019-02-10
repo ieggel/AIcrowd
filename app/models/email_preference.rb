@@ -8,7 +8,7 @@ class EmailPreference < ApplicationRecord
   def set_defaults
     # NATE: I don't like the default of true but this is only to make the tests pass and should
     # not occur in production since the email_preference is built after a user is created.
-    self.newsletter = self.participant && self.participant.agreed_to_marketing || true
+    self.newsletter = self.participant ? self.participant.agreed_to_marketing : true
     self.challenges_followed = true
     self.mentions = true
     self.email_frequency = :daily
