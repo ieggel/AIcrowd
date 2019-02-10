@@ -12,7 +12,10 @@
     <fieldset class="checkbox">
       <div>
         <%= f.check_box :challenge_rules_additional_checkbox, {}, "true", "false" %>
-        <%= f.label :challenge_rules_additional_checkbox, @challenge_rules.additional_checkbox_text + " (optional)" %>
+        <%= f.label :challenge_rules_additional_checkbox do%>
+          <%= @challenge_rules.additional_checkbox_text.html_safe%>
+        <% end %>
+
       </div>
     </fieldset>
   <% end %>

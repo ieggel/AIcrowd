@@ -3,7 +3,7 @@
   <%= markdown_editor do |m| %>
     <%= f.text_area :terms_markdown, class: "txt-med" %>
   <% end %>
-  <br>
+  <hr>
   <fieldset class="checkbox">
     <div>
       <%= f.check_box :has_additional_checkbox, {}, "true", "false" %>
@@ -11,5 +11,7 @@
     </div>
   </fieldset>
   <label>Additional Checkbox Text</label>
-  <%= f.text_field :additional_checkbox_text %>
+  <%= markdown_editor do |m| %>
+    <%= f.text_area :additional_checkbox_text_markdown, class: "txt-sml" %>
+  <% end %>
 </div>

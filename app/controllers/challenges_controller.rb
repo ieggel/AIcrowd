@@ -249,7 +249,7 @@ class ChallengesController < ApplicationController
           :id,
           :terms_markdown,
           :has_additional_checkbox,
-          :additional_checkbox_text],
+          :additional_checkbox_text_markdown],
         invitations_attributes: [
           :id,
           :email,

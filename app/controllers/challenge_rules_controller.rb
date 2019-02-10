@@ -14,7 +14,7 @@ class ChallengeRulesController < ApplicationController
         :id,
         :terms_markdown,
         :has_additional_checkbox,
-        :additional_checkbox_text)
+        :additional_checkbox_text_markdown)
   end
 
   def set_challenge_rules
