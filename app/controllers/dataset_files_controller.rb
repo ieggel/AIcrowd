@@ -3,22 +3,13 @@ class DatasetFilesController < ApplicationController
   before_action :set_dataset_file,
     only: [:destroy, :edit, :update]
   before_action :set_challenge
+  before_action :check_participation_terms
   before_action :set_s3_direct_post,
     only: [:new, :create, :edit]
 
   def index
     @dataset_files = policy_scope(DatasetFile)
-      .where(challenge_id: @challenge.id)
-    @challenge_participant = @challenge
-      .challenge_participants
-      .find_by(participant_id: current_participant.id)
-    if @challenge_participant.blank?
-      @challenge_participant = ChallengeParticipant.create!(
-        challenge_id: @challenge.id,
-        participant_id: current_participant.id
-      )
-    end
-  end
+      .where(challenge_id: @challenge.id)  end
 
   def show
   end
@@ -72,22 +63,21 @@ class DatasetFilesController < ApplicationController
     @challenge = Challenge.friendly.find(params[:challenge_id])
   end
 
-# <<<<<<< HEAD
-# =======
-#   def check_participation_terms
-#     if current_participant && (current_participant.admin? || @challenge.organizer_id == current_participant.organizer_id)
-#       return
-#     end
-#     @challenge_participant = @challenge
-#       .challenge_participants
-#       .find_by(participant_id: current_participant.id)
+  def check_participation_terms
+    if current_participant && (current_participant.admin? || @challenge.organizer_id == current_participant.organizer_id)
+      return
+    end
 
-#     if !@challenge_participant or !@challenge_participant.accepted_dataset_toc
-#       redirect_to challenge_participation_terms_path(@challenge)
-#     end
-#   end
+    if !policy(@challenge).has_accepted_participation_terms?
+      redirect_to [@challenge, ParticipationTerms.current_terms]
+      return
+    end
 
-# >>>>>>> 42e4484... * fix participation_terms in a number of places mostly to account for admins and organizers
+    if !policy(@challenge).has_accepted_challenge_rules?
+      redirect_to [@challenge, @challenge.current_challenge_rules]
+      return
+    end
+  end
 
   def dataset_file_params
     params
