@@ -4,6 +4,13 @@ RSpec.describe DatasetFilesController, type: :controller do
   render_views
 
   let!(:challenge) { create :challenge, :running }
+  let!(:challenge_rules) {
+    create :challenge_rules,
+    challenge: challenge
+  }
+  let!(:participation_terms) {
+    create :participation_terms
+  }
   let!(:file1) {
     create :dataset_file, challenge: challenge, title: 'file1' }
   let!(:file2) {
