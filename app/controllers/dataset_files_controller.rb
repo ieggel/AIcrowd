@@ -9,7 +9,8 @@ class DatasetFilesController < ApplicationController
 
   def index
     @dataset_files = policy_scope(DatasetFile)
-      .where(challenge_id: @challenge.id)  end
+      .where(challenge_id: @challenge.id)
+  end
 
   def show
   end
