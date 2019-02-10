@@ -77,6 +77,27 @@ class ChallengePolicy < ApplicationPolicy
     return true
   end
 
+  def current_participation_terms
+    ParticipationTerms.current_terms
+  end
+
+  def current_participation_terms_version
+    current_participation_terms && current_participation_terms.version
+  end
+
+  def has_accepted_participation_terms?
+    if !participant
+      return
+    end
+    if (participant.participation_terms_accepted_version != current_participation_terms_version)
+      return
+    end
+    if !participant.participation_terms_accepted_date
+      return
+    end
+    return true
+  end
+
   def show_leaderboard?
     @record.challenge_rounds.present? &&
       @record.show_leaderboard == true ||

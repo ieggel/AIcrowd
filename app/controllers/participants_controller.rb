@@ -31,6 +31,19 @@ class ParticipantsController < ApplicationController
     end
   end
 
+  def accept_terms
+    @participant = Participant.friendly.find(params[:participant_id])
+    @challenge = Challenge.friendly.find(params[:challenge_id])
+    @participant.participation_terms_accepted_date = Time.now
+    if @participant.update_attributes(accept_terms_params)
+      if !policy(@challenge).has_accepted_challenge_rules?
+        redirect_to [@challenge, @challenge.current_challenge_rules]
+      else
+        redirect_to @challenge
+      end
+    end
+  end
+
   def destroy
     @participant.destroy
     redirect_to '/', notice: 'Account was successfully deleted.'
@@ -69,7 +82,7 @@ class ParticipantsController < ApplicationController
       nonce: nonce,
       avatar_url: avatar_url
     }
-    
+
     response_query = response_params.to_query
     encoded_response_query = Base64.strict_encode64(response_query)
     response_sig = OpenSSL::HMAC.hexdigest("sha256", ENV['SSO_SECRET'], encoded_response_query)
@@ -102,6 +115,12 @@ class ParticipantsController < ApplicationController
   def set_participant
     @participant = Participant.friendly.find(params[:id])
     authorize @participant
+  end
+
+  def accept_terms_params
+    params.require(:participant).permit(
+      :participation_terms_accepted_version
+    )
   end
 
   def participant_params

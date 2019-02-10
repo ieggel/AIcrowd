@@ -5,7 +5,7 @@
   <fieldset class="checkbox">
     <div>
       <%=check_box("rules", "accepted", { class: 'rules_check', id: 'rules-accepted-checkbox' }, "yes", "no")%>
-      <%= label :challenge_rules_additional_checkbox, "I have read and agree to the challenge rules (required)" %>
+      <%= label :challenge_rules_checkbox, "I have read and agree to the challenge rules (required)" %>
     </div>
   </fieldset>
   <% if @challenge_rules.has_additional_checkbox %>
