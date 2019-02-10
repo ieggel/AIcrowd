@@ -3,5 +3,7 @@ FactoryBot.define do
     challenge
     participant
     accepted_dataset_toc true
+    challenge_rules_accepted_date Time.now
+    challenge_rules_accepted_version 1
   end
 end

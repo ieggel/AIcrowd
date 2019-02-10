@@ -37,8 +37,8 @@ class Api::ExternalGradersController < Api::BaseController
         challenge: challenge, params: params)
       raise ChallengeClientNameInvalid if challenge.nil?
       raise ChallengeRoundNotOpen unless challenge_round_open?(challenge)
-      raise ParticipantDidNotAcceptParticipationTerms unless policy(challenge).has_accepted_participation_terms?
-      raise ParticipantDidNotAcceptChallengeRules unless policy(challenge).has_accepted_challenge_rules?
+      raise ParticipantDidNotAcceptParticipationTerms unless participant.has_accepted_participation_terms?
+      raise ParticipantDidNotAcceptChallengeRules unless challenge.has_accepted_challenge_rules?(participant)
       raise ParticipantNotQualified unless participant_qualified?(challenge,participant)
       raise ParallelSubmissionLimitExceeded unless parallel_submissions_allowed?(challenge,participant)
 
