@@ -53,7 +53,7 @@ class ChallengePolicy < ApplicationPolicy
   end
 
   def has_accepted_challenge_rules?
-    @record.has_accepted_challenge_rules(participant)
+    @record.has_accepted_challenge_rules?(participant)
   end
 
   def has_accepted_participation_terms?
