@@ -145,16 +145,6 @@ button {
   background-clip: padding-box;
 }
 
-#accept-challenge-rules-button:disabled {
-  background-color: #ccc;
-  cursor: not-allowed;
-}
-
-#accept-participation-terms-button:disabled {
-  background-color: #ccc;
-  cursor: not-allowed;
-}
-
 .requires-agreement:disabled {
   background-color: #ccc;
   cursor: not-allowed;
