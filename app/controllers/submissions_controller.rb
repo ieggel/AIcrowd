@@ -132,10 +132,6 @@ class SubmissionsController < ApplicationController
 
 
     def check_participation_terms
-      if current_participant && (current_participant.admin? || @challenge.organizer_id == current_participant.organizer_id)
-        return
-      end
-
       if !policy(@challenge).has_accepted_participation_terms?
         redirect_to [@challenge, ParticipationTerms.current_terms]
         return
