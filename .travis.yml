@@ -18,19 +18,20 @@ env:
   global:
     - DB=postgres
 
-before_script:
-  - cp config/application.yml.example config/application.yml
-  - psql -c 'create database crowdai_test;' -U postgres
-
 before_install:
   - "export DISPLAY=:99.0"
   - "sh -e /etc/init.d/xvfb start"
   - docker run -d -p 4572:4572 localstack/localstack
   - sleep 3 # give xvfb and localstack some time to start
 
+before_script:
+  - cp config/application.yml.example config/application.yml
+  - psql -c 'create database crowdai_test;' -U postgres
+  - bundle exec rails db:migrate
+
 script:
-  - bundle exec rake parallel:setup
-  - bundle exec rake parallel:spec
+  - bundle exec rails parallel:setup
+  - bundle exec rails parallel:spec
 
 branches:
   only:
