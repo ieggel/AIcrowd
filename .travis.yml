@@ -28,7 +28,7 @@ before_install:
   - docker pull localstack/localstack
   - docker run -d -p 4572:4572 localstack/localstack
   - mkdir ~/fog
-  - sleep 10 # give xvfb and localstack some time to start
+  - sleep 30 # give xvfb and localstack some time to start
 
 script:
   - bundle exec rake db:migrate
