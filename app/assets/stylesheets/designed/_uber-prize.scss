@@ -1,0 +1,704 @@
+//
+// Variables
+//
+
+$uber-accent:   #276EF1 !default;
+$uber-gray-100: #F5F5F5 !default;
+$uber-gray-200: #F0F0F0 !default;
+$uber-gray-400: #999999 !default;
+$uber-gray-600: #666666 !default;
+$uber-gray-800: #3D3D3D !default;
+
+//
+// Fonts
+//
+
+@font-face {
+  font-family: Uber Move Text;
+  font-style: normal;
+  font-weight: 400;
+  src: url('../../assets/fonts/UberMoveText-Regular.woff2') format('woff2'),
+       url('../../assets/fonts/UberMoveText-Regular.woff') format('woff');
+}
+
+@font-face {
+  font-family: Uber Move Text;
+  font-style: normal;
+  font-weight: 500;
+  src: url('../../assets/fonts/UberMoveText-Medium.woff2') format('woff2'),
+       url('../../assets/fonts/UberMoveText-Medium.woff') format('woff');
+}
+
+@font-face {
+  font-family: Uber Move;
+  font-style: normal;
+  font-weight: 500;
+  src: url('../../assets/fonts/UberMove-Medium.woff2') format('woff2'),
+       url('../../assets/fonts/UberMove-Medium.woff') format('woff');
+}
+
+@font-face {
+  font-family: Uber Move;
+  font-style: normal;
+  font-weight: 700;
+  src: url('../../assets/fonts/UberMove-Bold.woff2') format('woff2'),
+       url('../../assets/fonts/UberMove-Bold.woff') format('woff');
+}
+
+//
+// Type
+//
+
+.styles-uber-prize {
+  font-family: Uber Move Text, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  h1, h2, h3, h4,
+  .h1, .h2, .h3, .h4 {
+    font-family: Uber Move, sans-serif;
+    font-weight: 700;
+    line-height: 1.2;
+    color: $black;
+    margin-bottom: 2rem;
+  }
+
+  h1, .h1 {
+    font-size: 5.25rem;
+    @include media-breakpoint-down(md) {
+      font-size: 4.5rem;
+    }
+    @include media-breakpoint-down(xs) {
+      font-size: 2.5rem;
+    }
+  }
+
+  h2, .h2 {
+    font-size: 3.5rem;
+    @include media-breakpoint-down(sm) {
+      font-size: 2.25rem;
+    }
+  }
+
+  h3, .h3 {
+    font-size: 2rem;
+    font-weight: 500;
+    @include media-breakpoint-down(sm) {
+      font-size: 1.75rem;
+    }
+  }
+
+  h4, .h4 {
+    font-size: 1.5rem;
+    text-transform: none;
+    letter-spacing: 0;
+    @include media-breakpoint-down(sm) {
+      font-size: 1.375rem;
+    }
+  }
+
+  p {
+    color: $uber-gray-600;
+    line-height: 1.5;
+    max-width: 720px;
+    margin-bottom: 2rem;
+    a {
+      color: $uber-accent;
+      text-decoration: none;
+    }
+  }
+
+  .text-color-uber-gray-400 {
+    color: $uber-gray-400;
+  }
+}
+
+//
+// Utilities
+//
+
+html {
+  scroll-behavior: smooth;
+}
+
+.styles-uber-prize {
+  .app-header {
+    font-family: "inter-ui", sans-serif;
+    border-bottom: 0;
+  }
+
+  .font-size-xl {
+    font-size: 1.5rem;
+    @include media-breakpoint-down(md) {
+      font-size: 1.25rem;
+    }
+  }
+
+  .font-size-lg {
+    font-size: 1.25rem;
+    @include media-breakpoint-down(sm) {
+      font-size: 1rem;
+    }
+  }
+
+  .font-size-sm {
+    font-size: 1rem;
+  }
+
+  .font-size-xs {
+    font-size: .875rem;
+  }
+
+  .font-weight-md {
+    font-weight: 500 !important;
+  }
+}
+
+//
+// Buttons
+//
+
+.styles-uber-prize {
+  .btn-uber {
+    display: inline-block;
+    background-color: $uber-accent;
+    color: $white;
+    font-size: 1rem;
+    font-weight: 500 !important;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    user-select: none;
+    border: none;
+    padding: 13px 24px;
+    @include transition($btn-transition);
+    &:focus,
+    &.focus {
+      outline: 0;
+    }
+    &:hover,
+    &.hover {
+      background-color: lighten($uber-accent, 4%);
+    }
+    // Opinionated: add "hand" cursor to non-disabled .btn elements
+    &:not(:disabled):not(.disabled) {
+      cursor: pointer;
+    }
+  }
+
+  .btn-uber-lg {
+    padding: 17px 32px;
+  }
+
+  .btn-uber {
+    img {
+      margin: -3px 0 0 14px;
+    }
+  }
+}
+
+//
+// Icons
+//
+
+.styles-uber-prize {
+  p {
+    img {
+      margin-top: -4px;
+      margin-right: 12px;
+      @include media-breakpoint-down(sm) {
+        margin-right: 8px;
+      }
+    }
+  }
+}
+
+//
+// Sticky nav bar
+//
+
+.styles-uber-prize {
+  #uberNavBar {
+    display: none;
+    background-color: $black;
+    color: $white;
+    padding: 12px 0;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    .container-fluid {
+      display: flex;
+      justify-content: space-between;
+      height: 48px;
+      @include media-breakpoint-down(sm) {
+        height: 40px;
+      }
+      div {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+    }
+    .logo-aicrowd {
+      display: block;
+      background: url('../../assets/img/logo-aicrowd-sm.svg') no-repeat 0 0;
+      height: 28px;
+      width: 30px;
+      span {
+        display: none;
+      }
+    }
+    .nav {
+      margin: 0;
+      @include media-breakpoint-down(sm) {
+        display: none;
+      }
+    }
+    .nav-link {
+      color: $white;
+      font-size: .875rem;
+      padding: 0 20px;
+    }
+    h4 {
+      color: $white;
+      margin-top: 32px;
+      padding-left: 32px;
+      @include media-breakpoint-down(sm) {
+        padding-left: 24px;
+      }
+    }
+    .btn-uber {
+      margin-left: 20px;
+      @include media-breakpoint-down(sm) {
+        margin: 0;
+        padding: 9px 16px;
+      }
+    }
+  }
+}
+
+//
+// Hero
+//
+
+.styles-uber-prize {
+  .uber-hero-container {
+    @include media-breakpoint-down(sm) {
+     .container-fluid {
+      padding: 0;
+     }
+    }
+  }
+  .uber-hero {
+    display: flex;
+    flex-direction: column;
+    background: url('../../assets/img/uber-prize/hero.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: calc( 100vh - 128px);
+    min-height: 480px;
+    margin-bottom: 48px;
+    @include media-breakpoint-down(lg) {
+      height: calc( 100vh - 112px);
+      margin-bottom: 32px;
+    }
+    @include media-breakpoint-down(md) {
+      height: calc( 100vh - 108px);
+      margin-bottom: 28px;
+    }
+    @include media-breakpoint-down(sm) {
+      height: calc( 100vh - 60px);
+      margin-bottom: 0;
+    }
+    .nav {
+      justify-content: flex-end;
+      margin: 36px 28px 0 0;
+      @include media-breakpoint-down(md) {
+        justify-content: flex-start;
+        margin-left: 50px;
+      }
+      @include media-breakpoint-down(sm) {
+        margin: 36px 0 10px;
+      }
+    }
+    .nav-link {
+      color: $white;
+      font-size: 1rem;
+      padding: 0 20px;
+      &:last-of-type {
+        padding-right: 0;
+      }
+      @include media-breakpoint-down(xs) {
+        font-size: .875rem;
+        padding: 0 12px;
+      }
+    }
+    .uber-hero-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      height: 100%;
+      margin: 0 20px 0 100px;
+      @include media-breakpoint-down(md) {
+        margin-left: 60px;
+      }
+      @include media-breakpoint-down(sm) {
+        margin-left: 24px;
+      }
+    }
+    h1 {
+      color: $white;
+    }
+    p {
+      color: $white;
+      font-weight: 500;
+      max-width: 520px;
+    }
+    .uber-hero-cta {
+      display: flex;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      margin-top: 4%;
+      p {
+        margin:  10px 20px 20px 0;
+      }
+    }
+  }
+}
+
+//
+// Sections
+//
+
+.styles-uber-prize {
+  .uber-section-intro {
+    padding-top: 108px;
+    @include media-breakpoint-down(md) {
+      padding-top: 60px;
+    }
+    .illustration {
+      margin-top: 52px;
+      @include media-breakpoint-down(md) {
+        margin-top: 24px;
+      }
+      @include media-breakpoint-down(sm) {
+        margin-top: 12px;
+      }
+    }
+  }
+
+  .uber-section-prize {
+    padding: 108px 20px;
+    @include media-breakpoint-down(md) {
+      padding: 60px 20px 40px 20px;
+    }
+    @include media-breakpoint-down(sm) {
+      padding: 60px 20px 24px 20px;
+    }
+    .col-12,
+    .col-md-12,
+    .col-lg-6 {
+      p {
+        margin-right: auto;
+        margin-left: auto;
+      }
+    }
+  }
+
+  .uber-section-contest-rules {
+    overflow-x: hidden;
+    background: linear-gradient(90deg,$white 0,$white 50%,$uber-gray-100 0,$uber-gray-100);
+    @include media-breakpoint-down(md) {
+      background: none;
+    }
+    .container-fluid {
+      display: flex;
+      @include media-breakpoint-down(md) {
+        display: block;
+      }
+    }
+    .contest-rules-description {
+      width: calc(50% - 72px);
+      padding: 60px 72px 72px 0;
+      @include media-breakpoint-down(lg) {
+        width: calc(50% - 60px);
+      }
+      @include media-breakpoint-down(md) {
+        text-align: center;
+        width: 100%;
+        padding: 0 0 72px 0;
+        p {
+          margin-right: auto;
+          margin-left: auto;
+        }
+      }
+      .icon {
+        margin-bottom: 35px;
+      }
+    }
+    .contest-judges {
+      background-color: $uber-gray-100;
+      width: calc(50% + 72px);
+      padding: 0 0 72px 72px;
+       @include media-breakpoint-down(lg) {
+        width: calc(50% + 60px);
+        padding: 0 0 60px 60px;
+      }
+      @include media-breakpoint-down(md) {
+        position: relative;
+        width: 100%;
+        padding: 0 0 60px 0;
+        &:before {
+          content: "";
+          background-color: $uber-gray-100;
+          position: absolute;
+          height: 100%;
+          width: 4000px;
+          left: -2000px;
+          z-index: -1;
+        }
+      }
+      h3 {
+        padding-top: 60px;
+      }
+      .contest-judge-list {
+        display: flex;
+        flex-wrap: wrap;
+        @include media-breakpoint-down(xs) {
+          display: block;
+        }
+      }
+      .contest-judge-item {
+        display: flex;
+        width: 50%;
+        margin-bottom: 20px;
+        @include media-breakpoint-down(sm) {
+          width: 100%;
+        }
+      }
+      .contest-judge-photo {
+        flex-shrink: 0;
+        height: 48px;
+        width: 48px;
+        margin-right: 20px;
+        @include media-breakpoint-down(sm) {
+          margin-right: 16px;
+        }
+      }
+      .contest-judge-name,
+      .contest-judge-org {
+        display: block;
+        padding-right: 8px;
+      }
+      .contest-judge-name {
+        color: $uber-gray-800;
+        font-size: 1rem;
+        font-weight: 500;
+        margin-top: 4px;
+      }
+      .contest-judge-org {
+        color: $uber-gray-600;
+        font-size: .875rem;
+      }
+    }
+  }
+
+  .uber-section-partners {
+    .col-12 {
+      padding: 108px 0 108px 0;
+      @include media-breakpoint-down(md) {
+        padding: 60px 0 100px 0;
+      }
+      @include media-breakpoint-down(sm) {
+        padding: 48px 0 60px 0;
+      }
+      p {
+        color: $uber-gray-400;
+        max-width: 760px;
+        margin-right: auto;
+        margin-left: auto;
+        margin-bottom: 40px;
+        @include media-breakpoint-down(sm) {
+          margin-bottom: 32px;
+        }
+      }
+      .uber-partners {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        @include media-breakpoint-down(xs) {
+          display: block;
+        }
+      }
+      .uber-partner-item {
+        height: 48px;
+        margin: 0 28px;
+        @include media-breakpoint-down(md) {
+          height: 32px;
+          margin: 0 16px 20px 16px;
+        }
+        @include media-breakpoint-down(xs) {
+          display: block;
+          text-align: center;
+          margin: 0 auto 20px auto;
+        }
+      }
+    }
+  }
+
+  .uber-section-advisors {
+    .col-12 {
+      padding: 120px 0 108px 0;
+      border-bottom: 1px solid $uber-gray-200;
+      @include media-breakpoint-down(md) {
+        padding: 108px 0 100px 0;
+      }
+      @include media-breakpoint-down(sm) {
+        padding: 80px 0 48px 0;
+      }
+      .advisor-icons {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 52px;
+        .icon {
+          margin: 0 14px;
+        }
+      }
+      p {
+        color: $black;
+        font-weight: 500;
+        margin-right: auto;
+        margin-left: auto;
+        margin-bottom: 60px;
+        padding: 0 20px;
+        @include media-breakpoint-down(sm) {
+          margin-bottom: 40px;
+        }
+      }
+      .uber-advisors {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      .uber-advisors-item {
+        height: 64px;
+        margin: 0 28px;
+        @include media-breakpoint-down(md) {
+          margin: 0 16px 20px 16px;
+        }
+      }
+    }
+  }
+
+  .uber-section-faqs {
+    padding: 108px 0 80px 0;
+    @include media-breakpoint-down(md) {
+      padding: 80px 0;
+    }
+    @include media-breakpoint-down(sm) {
+      padding: 48px 0 28px 0;
+    }
+    h2 {
+      margin-bottom: 52px;
+    }
+    .uber-faqs {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    .uber-faqs-item {
+      background: url('../../assets/img/uber-prize/speech-bubble.svg') 0 0 no-repeat;
+      width: calc(50% - 72px);
+      margin-bottom: 12px;
+      padding-top: 36px;
+      @include media-breakpoint-down(md) {
+        width: 100%;
+      }
+      .question {
+        color: $black;
+        font-weight: 500;
+      }
+      .answer {
+        font-size: 1rem;
+      }
+    }
+  }
+
+  .uber-section-links {
+    background-color: $uber-gray-100;
+    padding: 57px 0 60px 0;
+    @include media-breakpoint-down(sm) {
+      padding: 14px 0 40px 0;
+    }
+    .uber-figures {
+      @include media-breakpoint-down(md) {
+        display: flex;
+      }
+      @include media-breakpoint-down(sm) {
+        padding: 33px 0 0 0;
+        display: block;
+      }
+    }
+    figure {
+      margin: 0 auto 40px auto;
+      @include media-breakpoint-down(md) {
+        
+      }
+      figcaption {
+        color: $black;
+        text-align: left;
+        padding-left: 26px;
+      }
+    }
+    .uber-links {
+      @include media-breakpoint-down(md) {
+        display: flex;
+      }
+      @include media-breakpoint-down(xs) {
+        display: block;
+      }
+    }
+    h2 {
+      margin: 100px 0 60px 0;
+      @include media-breakpoint-down(md) {
+        width: 60%;
+        margin: 38px 0 60px 0;
+      }
+      @include media-breakpoint-down(xs) {
+        width: 100%;
+        margin: 38px 0 32px 0;
+      }
+    }
+    ul {
+      padding-left: 20px;
+      @include media-breakpoint-down(md) {
+        margin-top: 48px;
+      }
+    }
+    ul li {
+      margin-bottom: 20px;
+      padding-left: 12px;
+    }
+    ul a {
+      color: $uber-accent;
+    }
+  }
+
+  .uber-section-cta {
+    padding: 108px 20px;
+    @include media-breakpoint-down(md) {
+      padding: 60px 20px 100px 20px;
+    }
+    @include media-breakpoint-down(sm) {
+      padding: 48px 20px 60px 20px;
+    }
+    .col-12,
+    .col-md-12,
+    .col-lg-6 {
+      p {
+        margin-right: auto;
+        margin-left: auto;
+      }
+    }
+  }
+}

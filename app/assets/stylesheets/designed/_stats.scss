@@ -1,0 +1,67 @@
+//
+// Challenge stats
+//
+
+.stats-group {
+  display: flex;
+}
+
+.stat-item {
+  font-size: .875rem;
+  width: 76px;
+  span {
+    cursor: help;
+  }
+  img {
+    margin-top: -2px;
+  }
+  &:last-of-type {
+  	width: auto;
+  }
+}
+
+//
+// Platform stats
+//
+
+.platform-stats {
+  .platform-stat-item {
+    background-color: $gray-050;
+    border-left: 2px solid $primary;
+    margin-bottom: 28px;
+    padding: .5rem 1rem .75rem 1rem;
+    @include media-breakpoint-down(sm) {
+      margin-bottom: 20px;
+      padding: .75rem;
+    }
+    @include media-breakpoint-down(xs) {
+      margin-bottom: 16px;
+    }
+    .display-1 {
+      display: block;
+      color: $primary-text;
+      font-size: 3rem;
+      line-height: 1.2;
+      letter-spacing: -2px;
+      @include media-breakpoint-down(md) {
+        font-size: 2.5rem;
+      }
+      @include media-breakpoint-down(sm) {
+        font-size: 2rem;
+      }
+      @include media-breakpoint-down(xs) {
+        font-size: 1.75rem;
+      }
+    }
+    .platform-stat-description {
+      color: $gray-700;
+      font-size: 1.125rem;
+      @include media-breakpoint-down(md) {
+        font-size: 1rem;
+      }
+      @include media-breakpoint-down(xs) {
+        font-size: .938rem;
+      }
+    }
+  }
+}

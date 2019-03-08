@@ -24,7 +24,7 @@
 // require es5-shim.min
 // require marked.min
 // require notebook.min
-//= require prism.min
+//= require prism
 
 // ---------------------- Modules ---------------------- //
 //= require modules/site
